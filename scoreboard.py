@@ -21,3 +21,4 @@ class Score(Turtle):
     def game_over(self):
         self.goto(0,0)
         self.write("Game Over", font = FONT_FAMILY, align="center")
+        
