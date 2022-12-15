@@ -17,17 +17,17 @@ s.bgcolor("black")
 s.tracer(0)
 s.title("snake")
 
+score = Score()
+pellet = Food()
+
+
 def screenclick(x,y):
     if -80 - 22 < x < 0 and -40 - 22 < y < -40 + 22: 
         start(s)
     
 
 def start(s):
-    print("start")
-    score = Score()
-    pellet = Food()
     snake = Snake()
-    seg = snake.seg
 
     s.update()
     s.listen()
@@ -38,7 +38,6 @@ def start(s):
         if snake.move(pellet,score) is False:
             break
         head = snake.head
-        print(head.heading())
         if head.heading() != 270:
             s.onkey(lambda: head.setheading(90) ,"w")
         if head.heading() != 90:
@@ -49,26 +48,31 @@ def start(s):
             s.onkey(lambda: head.setheading(180),"a")
 
 
-
+        
         s.update()
         time.sleep(.04)
+    
 
-    cont = Turtle()
-    close = Turtle()
+    # cont = Turtle()
+    # close = Turtle()
 
-    cont.goto(-80,-40)
-    close.goto(80,-40)
+    # cont.goto(-80,-40)
+    # close.goto(80,-40)
 
 
-    cont.color("white")
-    close.color("white")
+    # cont.color("white")
+    # close.color("white")
 
-    cont.write("Continue",font = FONT_FAMILY)
-    close.write("Exit",font = FONT_FAMILY)
+    # cont.write("Continue",font = FONT_FAMILY)
+    # close.write("Exit",font = FONT_FAMILY)
 
-    s.onscreenclick(screenclick)
+    # s.onscreenclick(screenclick)
+    # s.clear()
+    snake.clear()
+    del snake
+    start(s)
     time.sleep(10)
-    s.done()
+    s.exitonclick()
 
 
 

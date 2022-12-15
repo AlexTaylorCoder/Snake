@@ -44,7 +44,12 @@ class Snake():
                 if self.seg[i].xcor() == x and self.seg[i].ycor() == y:
                     score.game_over()
                     return False
-        
+    def clear(self):
+        for s in self.seg:
+            # s.ht()
+            s.reset()
+        self.seg = []
+
 
 
         
